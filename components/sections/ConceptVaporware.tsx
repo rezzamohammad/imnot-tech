@@ -14,7 +14,7 @@ export default function ConceptVaporware() {
         </div>
 
         <div
-          className="glass hud-corners rounded-2xl p-8 sm:p-12 relative overflow-hidden"
+          className="glass hud-corners rounded-none p-8 sm:p-12 relative"
           style={{ borderColor: "rgba(255,62,165,0.35)" }}
         >
           <div className="relative text-center">

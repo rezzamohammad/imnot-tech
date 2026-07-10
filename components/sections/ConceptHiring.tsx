@@ -107,17 +107,20 @@ export default function ConceptHiring() {
           {ROLES.map((r) => (
             <div
               key={r.t}
-              className="glass hud-corners p-5 relative"
+              className="glass hud-corners p-5 relative rounded-none"
               style={{ borderColor: "rgba(255,62,165,0.3)" }}
             >
-              <div
-                className="absolute inset-x-0 top-0 h-1"
-                style={{
-                  background:
-                    "linear-gradient(90deg,#ff3ea5,#b26bff)",
-                  boxShadow: "0 0 12px rgba(255,62,165,0.5)",
-                }}
-              />
+              {/* clip wrapper - clips bar at rounded corners but not at sharp bracket corners */}
+              <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ borderTopRightRadius: '14px' }}>
+                <div
+                  className="absolute inset-x-0 top-0 h-1"
+                  style={{
+                    background:
+                      "linear-gradient(90deg,#ff3ea5,#b26bff)",
+                    boxShadow: "0 0 12px rgba(255,62,165,0.5)",
+                  }}
+                />
+              </div>
               <div className="flex items-center justify-between">
                 <span className="font-display text-lg text-neon-magenta">
                   {r.t}

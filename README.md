@@ -36,35 +36,39 @@ npm run start    # serve the production build
 imnot-tech/
 ├── app/
 │   ├── layout.tsx        # fonts, metadata, favicon (/logo.png)
-│   ├── page.tsx          # assembles all sections + fixed "hiring" badge
-│   └── globals.css       # cyberpunk theme: neon tokens, glitch, scanlines, HUD, grid
+│   ├── page.tsx          # assembles all sections
+│   └── globals.css       # cyberpunk theme: neon tokens, glitch, scanlines, HUD, grid, custom scrollbar, range slider
 ├── components/
 │   ├── effects/          # canvas / motion visuals
-│   │   ├── BinaryRain.tsx   # falling 0/1 matrix rain
-│   │   ├── AICore.tsx       # floating AI core orb
-│   │   ├── DataViz.tsx      # sci-fi dashboard charts
-│   │   ├── GlitchText.tsx   # RGB-split glitch heading
-│   │   ├── HexFeed.tsx      # streaming random hex telemetry
-│   │   └── Scanlines.tsx    # CRT scanline + vignette overlay
+│   │   ├── BinaryRain.tsx      # falling 0/1 matrix rain
+│   │   ├── AICore.tsx          # rotating galaxy/atom (Hero)
+│   │   ├── NeuralNetwork.tsx   # neural network nodes (God Machine)
+│   │   ├── DataViz.tsx         # 3 chart types: area, radar, horizontal bars
+│   │   ├── GlitchText.tsx      # RGB-split glitch heading
+│   │   ├── HexFeed.tsx         # streaming random hex telemetry
+│   │   └── Scanlines.tsx       # CRT scanline + vignette overlay
 │   ├── ui/               # building blocks
-│   │   ├── HudFrame.tsx     # labeled HUD panel frame
-│   │   ├── TerminalLog.tsx  # funny terminal error log
-│   │   ├── AbsurdProgress.tsx # progress bar that makes no sense
-│   │   ├── ClassifiedPanels.tsx # mysterious project panels (hover reveal)
-│   │   ├── FakeRoadmap.tsx  # roadmap 2077 → ∞
-│   │   ├── AsciiArt.tsx     # ASCII art fragments
-│   │   └── Marquee.tsx      # scrolling slogan ticker
+│   │   ├── HudFrame.tsx        # labeled HUD panel frame
+│   │   ├── TerminalLog.tsx     # funny terminal error log
+│   │   ├── AbsurdProgress.tsx  # progress bar that makes no sense
+│   │   ├── ClassifiedPanels.tsx # mystery project panels (6 colors)
+│   │   ├── AgentWorkLog.tsx    # multi-mode terminal: SessionDeck + Agent logs
+│   │   ├── MusicPlayer.tsx     # music player with waveform + volume control
+│   │   ├── StickyHireButton.tsx # scroll-attach/detach hiring CTA
+│   │   ├── FakeRoadmap.tsx     # roadmap 2077 → ∞
+│   │   ├── AsciiArt.tsx        # ASCII art fragments
+│   │   └── Marquee.tsx         # scrolling slogan ticker
 │   └── sections/         # page sections (in render order)
-│       ├── Hero.tsx           # cinematic hero
-│       ├── ConceptAIGod.tsx   # concept 2: THE GOD MACHINE
-│       ├── ConceptAbandoned.tsx # concept 1: ABANDONED HQ
-│       ├── ConceptMemeStartup.tsx # concept 3: MEME STARTUP
-│       ├── ConceptLogoArt.tsx # concept 4: THE MARK (brand logo)
-│       ├── ConceptVaporware.tsx # concept 5: COMING SOON FOREVER
-│       ├── ConceptHiring.tsx  # satirical hiring / requircuitment
-│       └── Footer.tsx         # waitlist + satirical subscribe popup
+│       ├── Hero.tsx              # cinematic hero + music player + sticky hire button
+│       ├── ConceptAIGod.tsx      # concept 2: THE GOD MACHINE (neural network)
+│       ├── ConceptAbandoned.tsx  # concept 1: ABANDONED HQ
+│       ├── ConceptLogoArt.tsx    # concept 4: THE MARK + SessionDeck terminal
+│       ├── ConceptVaporware.tsx  # concept 5: COMING SOON FOREVER
+│       ├── ConceptHiring.tsx     # satirical hiring / requircuitment
+│       └── Footer.tsx            # waitlist + satirical subscribe popup
 └── public/
     ├── logo.png              # canonical brand logo (transparent PNG)
+    ├── summoned_echoes.mp3   # background music track
     └── logo/                 # logo variants (circle / non-circle) + After Effects source
 ```
 
@@ -72,78 +76,95 @@ imnot-tech/
 
 ## Content summary (everything inside)
 
-### 🔹 Hero (`sections/Hero.tsx`)
+### Hero (`sections/Hero.tsx`)
 Cinematic wide banner. Dark void background, perspective grid, global scanlines + CRT vignette. Features:
 - **Binary rain** background (`BinaryRain`)
-- **Floating AI core** with HUD telemetry (`AICore` + `HexFeed` in `HudFrame`)
+- **Floating AI core** with rotating galaxy/atom animation (`AICore`)
 - **Glitch title** `imnot.tech` (`GlitchText`)
 - Tagline: *"we don't know what we're building yet."*
 - **Terminal log** of funny fake errors (`TerminalLog`)
 - **Absurd progress bar**: `revolution progress ████░░░░` with `ETA: ∞` (`AbsurdProgress`)
-- Top-left **brand nav** (logo + `imnot.tech`, white glow) and a pulsing **"hiring"** link top-right.
+- **Nav**: Logo, MusicPlayer (play/stop/resume), CORE, HQ, PROJECTS, ROADMAP, JOIN, StickyHireButton
+- **Sticky Hire Button**: Starts in nav, detaches to fixed top-right on scroll with smooth transition
 
-### 🔸 1. ABANDONED HQ (`sections/ConceptAbandoned.tsx`) — *concept 1*
-Futuristic abandoned AI startup HQ: holographic screens showing **corrupted code**, mysterious glowing tower servers, magenta binary rain, lonely "we left but the lights stayed on" mood.
+### 1. ABANDONED HQ (`sections/ConceptAbandoned.tsx`) — concept 1
+Futuristic abandoned AI startup HQ: holographic screens showing corrupted code, mysterious glowing tower servers, magenta binary rain.
 
-### 🔸 2. THE GOD MACHINE (`sections/ConceptAIGod.tsx`) — *concept 2*
-A mysterious AI core floating in a futuristic lab, thousands of binary digits + hex orbiting it, unfinished prototype fragments. Output readout ends with: **`CLUE WHAT WE BUILD: NO`**.
+### 2. THE GOD MACHINE (`sections/ConceptAIGod.tsx`) — concept 2
+A mysterious AI core with **neural network visualization** (amber/orange interconnected nodes). Features:
+- Neural output waveform (cyan)
+- Status cards: Consciousness MOSTLY, Self-Awareness YES, Clue What We Build NO, Uptime ∞%
+- Core telemetry hex feed
 
-### 🔸 3. MEME STARTUP (`sections/ConceptMemeStartup.tsx`) — *concept 3*
-Robots in a startup office building **nothing**. Daily standup KPI cards: `0 things shipped / ∞ announced`, `vibes: optimal`, `pivot count: 7`.
+### 3. THE MARK (`sections/ConceptLogoArt.tsx`) — concept 4
+Brand logo section with **SessionDeck terminal** (tmux-style multi-workflow):
+- **Logo + wordmark**: `imnot.tech` with glitch effect, centered alignment
+- **SessionDeck terminal**: Multi-panel workspace with:
+  - Workspace tabs (my-workspace, dev-flow)
+  - Session sidebar (Arch/macOS hosts)
+  - 6 layout modes: ALL, DUAL, QUAD, INFRA, DECK, MIXED
+  - 4 right-panel popups: Servers, Sessions, Spotlight, New Session/Workspace
+  - 9 unique session panes: opencode, herdr, comofox, spotify, forgedev, omp, codex, claude, mission
+  - Tmux controls bar with feature buttons
 
-### 🔸 4. THE MARK (`sections/ConceptLogoArt.tsx`) — *concept 4*
-Brand logo section. Shows the **`public/logo.png`** mark (white glow), the `imnot.tech` wordmark, an ASCII box `[ N O T ] building...`, and tags: `minimal · broken · glitch`.
+### 4. COMING SOON FOREVER (`sections/ConceptVaporware.tsx`) — concept 5
+Fake billion-dollar announcement poster: bold futuristic typography, blurred/redacted mystery product, valuation `$1B` annotated *"a feeling, not a number"*.
 
-### 🔸 5. COMING SOON FOREVER (`sections/ConceptVaporware.tsx`) — *concept 5*
-Fake billion-dollar announcement poster: bold futuristic typography, a **blurred/redacted** mystery product, valuation `**$1B**` annotated *"a feeling, not a number"*, badge `SINCE 2075`.
+### Classified projects (`ui/ClassifiedPanels.tsx`)
+6 mystery project panels with unique accent colors (magenta, blue, green, purple, red, yellow). Reveal absurd descriptions on hover.
 
-### 🔹 Classified projects (`ui/ClassifiedPanels.tsx`)
-Mysterious "CLASSIFIED" project panels that reveal absurd descriptions on hover (e.g. *Project: ??? — status: allegedly*).
+### Data viz dashboards (`effects/DataViz.tsx`)
+3 distinct animated charts with different color themes:
+- **Global Throughput**: Area chart (cyan theme)
+- **Sentiment Analysis**: Radar/circular gauge (green theme)
+- **Resource Allocation**: Horizontal bars (pink theme)
 
-### 🔹 Fake roadmap (`ui/FakeRoadmap.tsx`)
-A roadmap that starts in 2077 and goes to `∞`, with milestones like *"Q3 2077 — announce something"*, *"Q4 2077 — pivot"*, *"∞ — ship (maybe)"*.
+### Music Player (`ui/MusicPlayer.tsx`)
+Background music player with:
+- Play/Stop/Resume states (green/pink/yellow colors)
+- Waveform visualizer overlay (cyan/purple/pink gradient bars)
+- Volume slider with custom styling
+- Loop mode (continuous playback)
+- React Portal rendering (always on top of all elements)
 
-### 🔹 Data viz dashboards (`effects/DataViz.tsx`)
-Three animated sci-fi charts (bars / waveforms / radial) that look important but plot nonsense.
-
-### 🔹 Marquee (`ui/Marquee.tsx`)
+### Marquee (`ui/Marquee.tsx`)
 Infinite scrolling slogan ticker: *"we're definitely building something"*, *"trust the roadmap"*, *"this is fine"*, etc.
 
-### 🔸 WE ARE HIRING (`sections/ConceptHiring.tsx`) — *satire recruitment*
-The self-aware "requircuitment" section:
-- Subtitle: *"Priority #1: interns. As many as possible. We need mostly no cost. This is a no-capital company."*
-- **Open roles**: INTERN (unpaid), SENIOR ENGINEER (paid in exposure), CHIEF VIBE OFFICER (salary: 0), GHOST INTERN, AI WHISPERER, PIVOT MANAGER.
-- **Hire procedure (5 steps)**: `APPLY` (CV → /dev/null) → `PROJECT TEST` (**real work shipped under someone else's name**) → `TECH INTERVIEW` (12 rounds of free work) → `OFFER` (unpaid, equity in vibes) → `GHOSTING` (we stop replying, forever).
-- **Apply form** "SUBMIT TO THE VOID": expected salary must be `0`, "are you okay being ghosted?" → yes/yes. On submit: *"APPLICATION RECEIVED. Discarded. (Just kidding — we never actually received it.)"*
+### WE ARE HIRING (`sections/ConceptHiring.tsx`) — satire recruitment
+Self-aware "requircuitment" section:
+- Open roles: INTERN (unpaid), SENIOR ENGINEER (paid in exposure), CHIEF VIBE OFFICER, GHOST INTERN, AI WHISPERER, PIVOT MANAGER
+- 5-step hire procedure with absurd tags
+- Apply form with satirical responses
 
-### 🔹 Footer / Waitlist (`sections/Footer.tsx`)
-- **Subscribe** button → satirical popup **"YOU'RE ON THE LIST"**: `queue position → ∞`, `est. invite → never`, *"we won't remember this. we won't email you. we won't launch."*
-- Branding, fake copyright `© 2077 imnot.tech — all rights reserved, none exercised`.
+### Footer / Waitlist (`sections/Footer.tsx`)
+- Subscribe button → satirical popup "YOU'RE ON THE LIST"
+- Branding with logo image and white glow
 
 ---
 
 ## Brand & visual language
 
-- **Palette**: void black `#04050a`, neon blue `#38e1ff`, neon purple `#b26bff`, neon green `#3dffa0`, neon magenta `#ff3ea5`.
+- **Palette**: void black `#04050a`, neon blue `#38e1ff`, neon purple `#b26bff`, neon green `#3dffa0`, neon magenta `#ff3ea5`, amber `#fbbf24`, red `#ff4444`, yellow `#fbbf24`.
 - **Mood**: mysterious, funny, self-aware, indie-hacker, startup satire.
-- **Logo**: transparent PNG (`public/logo.png`) used as the nav icon, the large "THE MARK" centerpiece, and the browser favicon. Variants (circle / non-circle) live in `public/logo/`.
-- **Logo glow** is intentionally **white** (per brand direction) so it reads cleanly on the dark void.
+- **Logo**: transparent PNG (`public/logo.png`) used as the nav icon and the large "THE MARK" centerpiece.
+- **Custom scrollbar**: 6px thin, orange thumb on dark track
+- **Range slider**: Custom styled with 14px thumb, cyan glow
 
 ---
 
 ## Notes & caveats
 
-- **All forms are satirical.** The subscribe and hiring/apply forms render a joke response and send **nothing anywhere** — there is no backend. (Wiring them to a real DB was intentionally deferred.)
+- **All forms are satirical.** The subscribe and hiring/apply forms render a joke response and send nothing anywhere — there is no backend.
 - **No placeholder/broken images.** Every visual is procedural (canvas/CSS/SVG); there are zero `<img>` placeholders except the brand logo.
-- **macOS cruft**: `public/.DS_Store` and `public/logo/.DS_Store` may appear — add them to `.gitignore` if you care. They're harmless.
+- **Music**: `summoned_echoes.mp3` loops continuously when played. MusicPlayer uses Web Audio API for waveform visualization.
 
 ---
 
 ## Possible next steps
 
-1. **Deploy** to Vercel and point the `imnot.tech` DNS (Namecheap) at it.
-2. **Wire the waitlist / hiring forms** to a real store (Supabase / Vercel KV / Resend) — the UI already exists, just needs a handler.
-3. **Swap sections for real renders** — the 5 concept prompts (AI god, abandoned HQ, meme startup, logo, vaporware poster) were written to be generated via ChatGPT/Gemini/Midjourney and dropped into `public/`.
+1. **Deploy** to Vercel and point the `imnot.tech` DNS at it.
+2. **Wire the waitlist / hiring forms** to a real store (Supabase / Vercel KV / Resend).
+3. **Swap sections for real renders** — the concept prompts were written to be generated via AI and dropped into `public/`.
 
 ---
 

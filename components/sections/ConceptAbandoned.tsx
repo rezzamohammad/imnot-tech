@@ -20,7 +20,7 @@ export default function ConceptAbandoned() {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="text-center mb-14">
           <div className="font-tech text-[11px] uppercase tracking-[0.4em] text-neon-magenta">
-            // concept_01
+            // concept_02
           </div>
           <h2 className="font-display text-4xl sm:text-6xl mt-3">
             <GlitchText text="ABANDONED HQ" />

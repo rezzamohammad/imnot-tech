@@ -11,7 +11,7 @@ export default function HudFrame({
 }) {
   return (
     <div
-      className={`hud-corners glass relative p-5 ${className}`}
+      className={`hud-corners glass relative p-5 rounded-none ${className}`}
       style={{ backgroundColor: "rgba(6,9,16,0.55)" }}
     >
       {label && (

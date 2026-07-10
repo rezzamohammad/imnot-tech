@@ -43,8 +43,19 @@ export default function Footer() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 mt-20 flex flex-col sm:flex-row items-center justify-between gap-6 font-tech text-[10px] uppercase tracking-widest text-dim">
-        <div className="flex items-center gap-2 text-neon-blue">
-          <span className="w-2 h-2 rounded-full bg-neon-green animate-pulse" />
+        <div className="flex items-center gap-2 font-display tracking-widest text-white">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logo.png"
+            alt="imnot.tech"
+            width={24}
+            height={24}
+            className="w-6 h-6 select-none"
+            style={{
+              filter:
+                "drop-shadow(0 0 8px rgba(255,255,255,0.75)) drop-shadow(0 0 18px rgba(255,255,255,0.45))",
+            }}
+          />
           imnot.tech
         </div>
         <div className="flex flex-wrap gap-6">

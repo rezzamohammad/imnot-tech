@@ -42,7 +42,7 @@ const PROJECTS = [
     status: "SMARTER THAN US",
     confidence: "??%",
     reveal: "LAST MESSAGE: 'figure it out yourselves.'",
-    accent: "blue" as const,
+    accent: "red" as const,
   },
   {
     name: "UNTITLED",
@@ -51,7 +51,7 @@ const PROJECTS = [
     status: "DAYDREAMING",
     confidence: "∞%",
     reveal: "SHIP DATE: when the stars align. Or never.",
-    accent: "green" as const,
+    accent: "yellow" as const,
   },
 ];
 
@@ -60,6 +60,8 @@ const accentMap: Record<string, string> = {
   blue: "#38e1ff",
   green: "#3dffa0",
   purple: "#b26bff",
+  red: "#ff4444",
+  yellow: "#fbbf24",
 };
 
 export default function ClassifiedPanels({
@@ -74,13 +76,16 @@ export default function ClassifiedPanels({
         return (
           <div
             key={p.name}
-            className="group relative glass p-4 overflow-hidden hud-corners"
+            className="group relative glass p-4 hud-corners rounded-none"
             style={{ borderColor: `${c}40` }}
           >
-            <div
-              className="absolute inset-x-0 top-0 h-1"
-              style={{ background: c, boxShadow: `0 0 12px ${c}` }}
-            />
+            {/* clip wrapper - clips bar at rounded corners but not at sharp bracket corners */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ borderTopRightRadius: '14px' }}>
+              <div
+                className="absolute inset-x-0 top-0 h-1"
+                style={{ background: c, boxShadow: `0 0 12px ${c}` }}
+              />
+            </div>
             <div className="flex items-center justify-between">
               <span
                 className="text-[10px] font-tech tracking-[0.25em] uppercase"
@@ -104,7 +109,7 @@ export default function ClassifiedPanels({
 
             <div className="mt-3 flex items-center justify-between font-tech text-[10px] uppercase tracking-wider">
               <span style={{ color: c }}>{p.status}</span>
-              <span className="text-neon-green/80">
+              <span style={{ color: c, opacity: 0.7 }}>
                 confidence: {p.confidence}
               </span>
             </div>

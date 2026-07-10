@@ -18,14 +18,6 @@ export default function Page() {
   return (
     <main className="relative">
       <Scanlines />
-      <a
-        href="#hiring"
-        className="fixed top-4 right-4 z-40 flex items-center gap-2 px-3 py-1.5 rounded-full font-tech text-[10px] uppercase tracking-[0.25em] text-neon-magenta border border-neon-magenta/50 bg-black/60 backdrop-blur hover:scale-105 transition"
-        style={{ boxShadow: "0 0 18px rgba(255,62,165,0.45)" }}
-      >
-        <span className="w-1.5 h-1.5 rounded-full bg-neon-magenta animate-pulse" />
-        we're hiring ▸
-      </a>
       <Hero />
       <Marquee />
 
@@ -73,13 +65,13 @@ export default function Page() {
           </div>
           <div className="space-y-5">
             <HudFrame label="global throughput">
-              <DataViz className="h-48 w-full" variant="composite" />
+              <DataViz className="h-48 w-full" variant="area" theme="cyan" />
             </HudFrame>
             <HudFrame label="sentiment analysis">
-              <DataViz className="h-40 w-full" variant="wave" />
+              <DataViz className="h-40 w-full" variant="radar" theme="green" />
             </HudFrame>
             <HudFrame label="resource allocation">
-              <DataViz className="h-40 w-full" variant="bars" />
+              <DataViz className="h-40 w-full" variant="horizontal" theme="pink" />
             </HudFrame>
           </div>
         </div>

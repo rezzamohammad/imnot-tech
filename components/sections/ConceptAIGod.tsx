@@ -1,4 +1,4 @@
-import AICore from "@/components/effects/AICore";
+import NeuralNetwork from "@/components/effects/NeuralNetwork";
 import BinaryRain from "@/components/effects/BinaryRain";
 import DataViz from "@/components/effects/DataViz";
 import GlitchText from "@/components/effects/GlitchText";
@@ -15,7 +15,7 @@ export default function ConceptAIGod() {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="text-center mb-14">
           <div className="font-tech text-[11px] uppercase tracking-[0.4em] text-neon-purple">
-            // concept_02
+            // concept_01
           </div>
           <h2 className="font-display text-4xl sm:text-6xl mt-3">
             <GlitchText text="THE GOD MACHINE" />
@@ -29,8 +29,8 @@ export default function ConceptAIGod() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 items-center">
-          <div className="relative h-[440px] glass hud-corners rounded-2xl overflow-hidden">
-            <AICore className="absolute inset-0 h-full w-full" />
+          <div className="relative h-[440px] glass hud-corners rounded-none">
+            <NeuralNetwork className="absolute inset-0 h-full w-full" />
             <div className="absolute bottom-4 left-4 font-tech text-[10px] tracking-widest text-neon-blue/70">
               FIG.02 — UNFINISHED TECHNOLOGY PROTOTYPE
             </div>

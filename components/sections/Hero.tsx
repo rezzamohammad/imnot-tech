@@ -6,6 +6,8 @@ import AbsurdProgress from "@/components/ui/AbsurdProgress";
 import HexFeed from "@/components/effects/HexFeed";
 import AsciiArt from "@/components/ui/AsciiArt";
 import HudFrame from "@/components/ui/HudFrame";
+import MusicPlayer from "@/components/ui/MusicPlayer";
+import StickyHireButton from "@/components/ui/StickyHireButton";
 
 export default function Hero() {
   return (
@@ -36,7 +38,8 @@ export default function Hero() {
             />
             imnot.tech
           </a>
-          <div className="hidden md:flex gap-7 font-tech text-[11px] uppercase tracking-[0.25em] text-dim">
+          <div className="hidden md:flex items-center gap-7 font-tech text-[11px] uppercase tracking-[0.25em] text-dim">
+            <MusicPlayer />
             <a href="#core" className="hover:text-neon-blue transition">
               core
             </a>
@@ -52,13 +55,7 @@ export default function Hero() {
             <a href="#join" className="hover:text-neon-blue transition">
               join
             </a>
-            <a
-              href="#hiring"
-              className="text-neon-magenta hover:scale-110 transition flex items-center gap-1.5"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-neon-magenta animate-pulse" />
-              hiring
-            </a>
+            <StickyHireButton />
           </div>
         </nav>
 
@@ -96,14 +93,14 @@ export default function Hero() {
           </div>
 
           {/* AI core + HUD */}
-          <div className="relative h-[420px] sm:h-[480px]">
+          <div className="relative h-[400px] sm:h-[440px]">
             <AICore className="absolute inset-0 h-full w-full" />
-            <div className="absolute -bottom-2 -left-2 w-56">
+            <div className="absolute bottom-4 left-2 w-56">
               <HudFrame label="core telemetry">
                 <HexFeed lines={7} />
               </HudFrame>
             </div>
-            <div className="absolute top-2 -right-2 w-60">
+            <div className="absolute top-8 right-2 w-60">
               <HudFrame label="system">
                 <AsciiArt />
               </HudFrame>
