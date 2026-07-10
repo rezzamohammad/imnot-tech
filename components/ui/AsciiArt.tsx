@@ -5,7 +5,7 @@ export default function AsciiArt({
 }) {
   const art = String.raw`
         .-"      "-.
-       /  ░░░░░  \
+       /   ░░░░░   \
       |   O      O   |
       |      /\      |
        \   '----'   /
