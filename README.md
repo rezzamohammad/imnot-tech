@@ -35,43 +35,43 @@ npm run start    # serve the production build
 ```
 imnot-tech/
 ├── app/
-│   ├── layout.tsx        # fonts, metadata, favicon (/logo.png)
-│   ├── page.tsx          # assembles all sections
-│   └── globals.css       # cyberpunk theme: neon tokens, glitch, scanlines, HUD, grid, custom scrollbar, range slider
+│   ├── layout.tsx                 # fonts, metadata, favicon (/logo.png)
+│   ├── page.tsx                   # assembles all sections
+│   └── globals.css                # cyberpunk theme: neon tokens, glitch, scanlines, HUD, grid, custom scrollbar, range slider
 ├── components/
-│   ├── effects/          # canvas / motion visuals
-│   │   ├── AICore.tsx           # rotating galaxy/atom (Hero)
-│   │   ├── BinaryRain.tsx       # falling 0/1 matrix rain
-│   │   ├── DataViz.tsx          # 3 chart types: area, radar, horizontal bars
-│   │   ├── GlitchText.tsx       # RGB-split glitch heading
-│   │   ├── HexFeed.tsx          # streaming random hex telemetry
-│   │   ├── NeuralNetwork.tsx    # neural network nodes (God Machine)
-│   │   └── Scanlines.tsx        # CRT scanline + vignette overlay
-│   ├── ui/               # building blocks
-│   │   ├── AbsurdProgress.tsx   # progress bar that makes no sense
-│   │   ├── AgentWorkLog.tsx     # multi-mode terminal: SessionDeck + Agent logs
-│   │   ├── AsciiArt.tsx         # ASCII art fragments
-│   │   ├── ClassifiedPanels.tsx # mystery project panels (6 colors)
-│   │   ├── FakeRoadmap.tsx      # roadmap 2077 → ∞
-│   │   ├── HudFrame.tsx         # labeled HUD panel frame
-│   │   ├── Marquee.tsx          # scrolling slogan ticker
-│   │   ├── MusicPlayer.tsx      # music player with waveform + volume control
-│   │   ├── ParodyWarning.tsx    # parody/satire legal notice (3 variants)
-│   │   ├── StickyHireButton.tsx # scroll-attach/detach hiring CTA (portal)
-│   │   └── TerminalLog.tsx      # funny terminal error log
-│   └── sections/         # page sections (in render order)
-│       ├── Hero.tsx              # cinematic hero + music player + sticky hire button
-│       ├── ConceptAIGod.tsx      # concept 2: THE GOD MACHINE (neural network)
-│       ├── ConceptAbandoned.tsx  # concept 1: ABANDONED HQ
+│   ├── effects/                   # canvas / motion visuals
+│   │   ├── AICore.tsx             # rotating galaxy/atom (Hero)
+│   │   ├── BinaryRain.tsx         # falling 0/1 matrix rain
+│   │   ├── DataViz.tsx            # 3 chart types: area, radar, horizontal bars
+│   │   ├── GlitchText.tsx         # RGB-split glitch heading
+│   │   ├── HexFeed.tsx            # streaming random hex telemetry
+│   │   ├── NeuralNetwork.tsx      # neural network nodes (God Machine)
+│   │   └── Scanlines.tsx          # CRT scanline + vignette overlay
+│   ├── ui/                        # building blocks
+│   │   ├── AbsurdProgress.tsx     # progress bar that makes no sense
+│   │   ├── AgentWorkLog.tsx       # multi-mode terminal: SessionDeck + Agent logs
+│   │   ├── AsciiArt.tsx           # ASCII art fragments
+│   │   ├── ClassifiedPanels.tsx   # mystery project panels (6 colors)
+│   │   ├── FakeRoadmap.tsx        # roadmap 2077 → ∞
+│   │   ├── HudFrame.tsx           # labeled HUD panel frame
+│   │   ├── Marquee.tsx            # scrolling slogan ticker
+│   │   ├── MusicPlayer.tsx        # music player with waveform + volume control
+│   │   ├── ParodyWarning.tsx      # parody/satire legal notice (3 variants)
+│   │   ├── StickyHireButton.tsx   # scroll-attach/detach hiring CTA (portal)
+│   │   └── TerminalLog.tsx        # funny terminal error log
+│   └── sections/                  # page sections (in render order)
+│       ├── Hero.tsx               # cinematic hero + music player + sticky hire button
+│       ├── ConceptAIGod.tsx       # concept 2: THE GOD MACHINE (neural network)
+│       ├── ConceptAbandoned.tsx   # concept 1: ABANDONED HQ
 │       ├── ConceptMemeStartup.tsx # concept 3: MEME STARTUP
-│       ├── ConceptLogoArt.tsx    # concept 4: THE MARK + SessionDeck terminal
-│       ├── ConceptVaporware.tsx  # concept 5: COMING SOON FOREVER
-│       ├── ConceptHiring.tsx     # satirical hiring / requircuitment
-│       └── Footer.tsx            # waitlist + satirical subscribe popup
+│       ├── ConceptLogoArt.tsx     # concept 4: THE MARK + SessionDeck terminal
+│       ├── ConceptVaporware.tsx   # concept 5: COMING SOON FOREVER
+│       ├── ConceptHiring.tsx      # satirical hiring / requircuitment
+│       └── Footer.tsx             # waitlist + satirical subscribe popup
 └── public/
-    ├── logo.png              # canonical brand logo (transparent PNG)
-    ├── summoned_echoes.mp3   # background music track
-    └── logo/                 # logo variants (circle / non-circle) + After Effects source
+    ├── logo.png                   # canonical brand logo (transparent PNG)
+    ├── summoned_echoes.mp3        # background music track
+    └── logo/                      # logo variants (circle / non-circle) + After Effects source
 ```
 
 ---
