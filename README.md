@@ -40,29 +40,30 @@ imnot-tech/
 │   └── globals.css       # cyberpunk theme: neon tokens, glitch, scanlines, HUD, grid, custom scrollbar, range slider
 ├── components/
 │   ├── effects/          # canvas / motion visuals
-│   │   ├── BinaryRain.tsx      # falling 0/1 matrix rain
-│   │   ├── AICore.tsx          # rotating galaxy/atom (Hero)
-│   │   ├── NeuralNetwork.tsx   # neural network nodes (God Machine)
-│   │   ├── DataViz.tsx         # 3 chart types: area, radar, horizontal bars
-│   │   ├── GlitchText.tsx      # RGB-split glitch heading
-│   │   ├── HexFeed.tsx         # streaming random hex telemetry
-│   │   └── Scanlines.tsx       # CRT scanline + vignette overlay
+│   │   ├── AICore.tsx           # rotating galaxy/atom (Hero)
+│   │   ├── BinaryRain.tsx       # falling 0/1 matrix rain
+│   │   ├── DataViz.tsx          # 3 chart types: area, radar, horizontal bars
+│   │   ├── GlitchText.tsx       # RGB-split glitch heading
+│   │   ├── HexFeed.tsx          # streaming random hex telemetry
+│   │   ├── NeuralNetwork.tsx    # neural network nodes (God Machine)
+│   │   └── Scanlines.tsx        # CRT scanline + vignette overlay
 │   ├── ui/               # building blocks
-│   │   ├── HudFrame.tsx        # labeled HUD panel frame
-│   │   ├── TerminalLog.tsx     # funny terminal error log
-│   │   ├── AbsurdProgress.tsx  # progress bar that makes no sense
+│   │   ├── AbsurdProgress.tsx   # progress bar that makes no sense
+│   │   ├── AgentWorkLog.tsx     # multi-mode terminal: SessionDeck + Agent logs
+│   │   ├── AsciiArt.tsx         # ASCII art fragments
 │   │   ├── ClassifiedPanels.tsx # mystery project panels (6 colors)
-│   │   ├── AgentWorkLog.tsx    # multi-mode terminal: SessionDeck + Agent logs
-│   │   ├── MusicPlayer.tsx     # music player with waveform + volume control
+│   │   ├── FakeRoadmap.tsx      # roadmap 2077 → ∞
+│   │   ├── HudFrame.tsx         # labeled HUD panel frame
+│   │   ├── Marquee.tsx          # scrolling slogan ticker
+│   │   ├── MusicPlayer.tsx      # music player with waveform + volume control
+│   │   ├── ParodyWarning.tsx    # parody/satire legal notice (3 variants)
 │   │   ├── StickyHireButton.tsx # scroll-attach/detach hiring CTA (portal)
-│   │   ├── ParodyWarning.tsx   # parody/satire legal notice (3 variants)
-│   │   ├── FakeRoadmap.tsx     # roadmap 2077 → ∞
-│   │   ├── AsciiArt.tsx        # ASCII art fragments
-│   │   └── Marquee.tsx         # scrolling slogan ticker
+│   │   └── TerminalLog.tsx      # funny terminal error log
 │   └── sections/         # page sections (in render order)
 │       ├── Hero.tsx              # cinematic hero + music player + sticky hire button
 │       ├── ConceptAIGod.tsx      # concept 2: THE GOD MACHINE (neural network)
 │       ├── ConceptAbandoned.tsx  # concept 1: ABANDONED HQ
+│       ├── ConceptMemeStartup.tsx # concept 3: MEME STARTUP
 │       ├── ConceptLogoArt.tsx    # concept 4: THE MARK + SessionDeck terminal
 │       ├── ConceptVaporware.tsx  # concept 5: COMING SOON FOREVER
 │       ├── ConceptHiring.tsx     # satirical hiring / requircuitment
