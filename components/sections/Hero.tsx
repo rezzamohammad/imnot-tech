@@ -69,7 +69,10 @@ export default function Hero() {
               <GlitchText text="imnot.tech" className="block" />
             </h1>
             <p className="mt-5 text-lg sm:text-2xl text-neon-blue/90 font-tech">
-              we don't know what we're building yet.
+              We don't know what we're building yet.
+            </p>
+            <p className="mt-5 text-lg sm:text-2xl text-neon-blue/90 font-tech">
+              Probably AI slops and it will be revolutionary.
             </p>
             <p className="mt-3 max-w-md text-dim text-sm sm:text-base leading-relaxed">
               A hyper-hyped technology company from the future. Funded, staffed,

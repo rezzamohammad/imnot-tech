@@ -13,11 +13,13 @@ import GlitchText from "@/components/effects/GlitchText";
 import HudFrame from "@/components/ui/HudFrame";
 import Footer from "@/components/sections/Footer";
 import ConceptHiring from "@/components/sections/ConceptHiring";
+import ParodyWarning from "@/components/ui/ParodyWarning";
 
 export default function Page() {
   return (
     <main className="relative">
       <Scanlines />
+      <ParodyWarning />
       <Hero />
       <Marquee />
 

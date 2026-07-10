@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import GlitchText from "@/components/effects/GlitchText";
+import ParodyWarning from "@/components/ui/ParodyWarning";
 
 export default function Footer() {
   const [subbed, setSubbed] = useState(false);
@@ -40,6 +41,10 @@ export default function Footer() {
         <p className="mt-3 text-[11px] text-dim font-mono">
           no spam. mostly because there's nothing to spam about.
         </p>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 mt-16">
+        <ParodyWarning variant="box" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 mt-20 flex flex-col sm:flex-row items-center justify-between gap-6 font-tech text-[10px] uppercase tracking-widest text-dim">

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import GlitchText from "@/components/effects/GlitchText";
 import HudFrame from "@/components/ui/HudFrame";
+import ParodyWarning from "@/components/ui/ParodyWarning";
 
 const ROLES = [
   {
@@ -86,6 +87,9 @@ export default function ConceptHiring() {
   return (
     <section id="hiring" className="relative py-24 overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-6">
+        <div className="mb-10">
+          <ParodyWarning variant="inline" />
+        </div>
         {/* header */}
         <div className="text-center mb-14">
           <div className="font-tech text-[11px] uppercase tracking-[0.4em] text-neon-magenta">

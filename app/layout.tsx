@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "imnot.tech",
-    description: "We don't know what we're building yet. But it will be revolutionary.",
+    description: "We don't know what we're building yet. Probably AI slops and it will be revolutionary.",
     type: "website",
   },
 };

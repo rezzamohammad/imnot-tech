@@ -54,7 +54,8 @@ imnot-tech/
 │   │   ├── ClassifiedPanels.tsx # mystery project panels (6 colors)
 │   │   ├── AgentWorkLog.tsx    # multi-mode terminal: SessionDeck + Agent logs
 │   │   ├── MusicPlayer.tsx     # music player with waveform + volume control
-│   │   ├── StickyHireButton.tsx # scroll-attach/detach hiring CTA
+│   │   ├── StickyHireButton.tsx # scroll-attach/detach hiring CTA (portal)
+│   │   ├── ParodyWarning.tsx   # parody/satire legal notice (3 variants)
 │   │   ├── FakeRoadmap.tsx     # roadmap 2077 → ∞
 │   │   ├── AsciiArt.tsx        # ASCII art fragments
 │   │   └── Marquee.tsx         # scrolling slogan ticker
@@ -81,7 +82,7 @@ Cinematic wide banner. Dark void background, perspective grid, global scanlines 
 - **Binary rain** background (`BinaryRain`)
 - **Floating AI core** with rotating galaxy/atom animation (`AICore`)
 - **Glitch title** `imnot.tech` (`GlitchText`)
-- Tagline: *"we don't know what we're building yet."*
+- Tagline: *"We don't know what we're building yet. Probably AI slops and it will be revolutionary."*
 - **Terminal log** of funny fake errors (`TerminalLog`)
 - **Absurd progress bar**: `revolution progress ████░░░░` with `ETA: ∞` (`AbsurdProgress`)
 - **Nav**: Logo, MusicPlayer (play/stop/resume), CORE, HQ, PROJECTS, ROADMAP, JOIN, StickyHireButton
@@ -140,6 +141,12 @@ Self-aware "requircuitment" section:
 - Subscribe button → satirical popup "YOU'RE ON THE LIST"
 - Branding with logo image and white glow
 
+### Parody Warning (`ui/ParodyWarning.tsx`)
+Disclaimers placed in sensitive sections (Hero, Hiring, Footer):
+- `banner` — fixed bottom bar with hazard stripes (amber/black), dismissible
+- `box` — bordered notice box with detailed explanation
+- `inline` — compact single-line strip for tight layouts
+
 ---
 
 ## Brand & visual language
@@ -147,7 +154,7 @@ Self-aware "requircuitment" section:
 - **Palette**: void black `#04050a`, neon blue `#38e1ff`, neon purple `#b26bff`, neon green `#3dffa0`, neon magenta `#ff3ea5`, amber `#fbbf24`, red `#ff4444`, yellow `#fbbf24`.
 - **Mood**: mysterious, funny, self-aware, indie-hacker, startup satire.
 - **Logo**: transparent PNG (`public/logo.png`) used as the nav icon and the large "THE MARK" centerpiece.
-- **Custom scrollbar**: 6px thin, orange thumb on dark track
+- **Custom scrollbar**: 6px thin, cyan thumb on dark track (matches neon-blue theme)
 - **Range slider**: Custom styled with 14px thumb, cyan glow
 
 ---
