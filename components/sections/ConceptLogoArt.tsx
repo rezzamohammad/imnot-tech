@@ -22,7 +22,7 @@ export default function ConceptLogoArt() {
         {/* logo + wordmark + agent work */}
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* left: logo + wordmark */}
-          <div className="flex flex-col items-center gap-8">
+          <div className="flex flex-col items-center gap-8 min-w-0">
             {/* logo */}
             <div className="relative float-slow shrink-0">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -68,7 +68,7 @@ export default function ConceptLogoArt() {
           </div>
 
           {/* right: agent work log */}
-          <div className="w-full">
+          <div className="w-full min-w-0 max-h-[500px] overflow-hidden lg:max-h-none lg:overflow-visible">
             <AgentWorkLog className="w-full" />
           </div>
         </div>

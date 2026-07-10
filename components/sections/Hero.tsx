@@ -6,8 +6,7 @@ import AbsurdProgress from "@/components/ui/AbsurdProgress";
 import HexFeed from "@/components/effects/HexFeed";
 import AsciiArt from "@/components/ui/AsciiArt";
 import HudFrame from "@/components/ui/HudFrame";
-import MusicPlayer from "@/components/ui/MusicPlayer";
-import StickyHireButton from "@/components/ui/StickyHireButton";
+import Navbar from "@/components/ui/Navbar";
 
 export default function Hero() {
   return (
@@ -19,45 +18,7 @@ export default function Hero() {
 
       <div className="relative z-10 flex-1 flex flex-col">
         {/* nav */}
-        <nav className="flex items-center justify-between px-6 py-5 max-w-7xl mx-auto w-full">
-          <a
-            href="#top"
-            className="flex items-center gap-2 font-display tracking-widest text-white"
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/logo.png"
-              alt="imnot.tech"
-              width={28}
-              height={28}
-              className="w-7 h-7 select-none"
-              style={{
-                filter:
-                  "drop-shadow(0 0 8px rgba(255,255,255,0.75)) drop-shadow(0 0 18px rgba(255,255,255,0.45))",
-              }}
-            />
-            imnot.tech
-          </a>
-          <div className="hidden md:flex items-center gap-7 font-tech text-[11px] uppercase tracking-[0.25em] text-dim">
-            <MusicPlayer />
-            <a href="#core" className="hover:text-neon-blue transition">
-              core
-            </a>
-            <a href="#hq" className="hover:text-neon-blue transition">
-              hq
-            </a>
-            <a href="#projects" className="hover:text-neon-blue transition">
-              projects
-            </a>
-            <a href="#roadmap" className="hover:text-neon-blue transition">
-              roadmap
-            </a>
-            <a href="#join" className="hover:text-neon-blue transition">
-              join
-            </a>
-            <StickyHireButton />
-          </div>
-        </nav>
+        <Navbar />
 
         {/* body */}
         <div className="flex-1 grid lg:grid-cols-2 gap-10 items-center max-w-7xl mx-auto w-full px-6 pb-10 pt-6">

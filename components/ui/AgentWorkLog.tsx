@@ -442,7 +442,7 @@ function DeckPane({ session }: { session: Session }) {
 function RightSidebar({ panel, sessions, onClose }: { panel: RightPanel; sessions: Session[]; onClose: () => void }) {
   if (!panel) return null;
   return (
-    <div className="absolute right-0 top-0 bottom-0 z-30 flex flex-col border-l overflow-y-auto" style={{ width: 240, borderColor: "rgba(96,130,210,0.15)", backgroundColor: "rgba(8,10,20,0.98)", boxShadow: "-4px 0 24px rgba(0,0,0,0.5)" }}>
+    <div className="absolute right-0 top-0 bottom-0 z-30 flex flex-col border-l overflow-y-auto w-[90vw] max-w-full lg:w-[240px]" style={{ borderColor: "rgba(96,130,210,0.15)", backgroundColor: "rgba(8,10,20,0.98)", boxShadow: "-4px 0 24px rgba(0,0,0,0.5)" }}>
       <div className="flex items-center justify-between px-3 py-2 border-b shrink-0" style={{ borderColor: "rgba(96,130,210,0.1)" }}>
         <span className="font-tech text-[10px] uppercase tracking-wider text-dim">{panel.replace("-", " ")}</span>
         <button onClick={onClose} className="text-dim/40 hover:text-dim text-[10px] transition">✕</button>
@@ -582,12 +582,29 @@ function RightSidebar({ panel, sessions, onClose }: { panel: RightPanel; session
   );
 }
 
+/* ── responsive helper ───────────────────────────────────── */
+
+function useIsMobile(breakpoint = 1024) {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia(`(max-width: ${breakpoint - 1}px)`);
+    const handler = () => setIsMobile(mq.matches);
+    handler();
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, [breakpoint]);
+  return isMobile;
+}
+
 /* ── main component ───────────────────────────────────────── */
 
 const TERMINAL_HEIGHT = "h-[380px]";
 
 export default function AgentWorkLog({ className = "" }: { className?: string }) {
   const [mode, setMode] = useState<Mode>("sessiondeck");
+
+  /* mobile detection (below lg = 1024px) */
+  const isMobile = useIsMobile(1024);
 
   /* terminal mode state */
   const [panels, setPanels] = useState<Panel[]>(() =>
@@ -601,6 +618,11 @@ export default function AgentWorkLog({ className = "" }: { className?: string })
   const [sessions, setSessions] = useState(SESSIONS);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [rightPanel, setRightPanel] = useState<RightPanel>(null);
+
+  /* collapse the left sidebar by default on mobile so it doesn't eat pane space */
+  useEffect(() => {
+    if (isMobile) setSidebarOpen(false);
+  }, [isMobile]);
 
   const ws = WORKSPACES.find((w) => w.id === activeWorkspace)!;
   const visibleSessions = sessions.filter((s) => ws.sessions.includes(s.id));
@@ -732,7 +754,10 @@ export default function AgentWorkLog({ className = "" }: { className?: string })
             {/* main content */}
             <div className="relative flex flex-1 min-h-0 overflow-hidden">
               {sidebarOpen && (
-                <div className="w-[180px] shrink-0 flex flex-col border-r overflow-y-auto" style={{ borderColor: "rgba(96,130,210,0.1)", backgroundColor: "rgba(8,10,20,0.98)" }}>
+              <div
+                className={`${isMobile ? "absolute inset-y-0 left-0 z-20 w-[200px] max-w-[70vw]" : "w-[180px] shrink-0"} flex flex-col border-r overflow-y-auto`}
+                style={{ borderColor: "rgba(96,130,210,0.1)", backgroundColor: "rgba(8,10,20,0.98)" }}
+              >
                   {(["arch", "macos"] as const).map((host) => (
                     <div key={host}>
                       <div className="flex items-center gap-2 px-3 py-2 text-[9px] font-tech text-dim/50 uppercase tracking-wider">
