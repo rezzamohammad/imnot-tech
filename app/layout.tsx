@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Orbitron, JetBrains_Mono, Share_Tech_Mono, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 import "./globals.css";
 
 const orbitron = Orbitron({
@@ -64,7 +65,18 @@ export default function RootLayout({
       lang="en"
       className={`${orbitron.variable} ${jetbrains.variable} ${shareTech.variable} ${inter.variable}`}
     >
-      <body>{children}<Analytics /></body>
+      <body>
+        {children}
+        <Analytics />
+        {/* Cloudflare Web Analytics — manual JS snippet (DNS-only safe) */}
+        <Script
+          id="cf-web-analytics"
+          type="module"
+          strategy="afterInteractive"
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "846c8dcae1af4920a87aca813eff8a6c"}'
+        />
+      </body>
     </html>
   );
 }
