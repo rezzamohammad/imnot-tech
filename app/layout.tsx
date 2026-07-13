@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Orbitron, JetBrains_Mono, Share_Tech_Mono, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const orbitron = Orbitron({
@@ -63,7 +64,7 @@ export default function RootLayout({
       lang="en"
       className={`${orbitron.variable} ${jetbrains.variable} ${shareTech.variable} ${inter.variable}`}
     >
-      <body>{children}</body>
+      <body>{children}<Analytics /></body>
     </html>
   );
 }
